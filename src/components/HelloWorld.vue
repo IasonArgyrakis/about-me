@@ -96,12 +96,13 @@
                 >
                   <v-card>
                     <v-card-title v-if="item.company">
-                      <span class="text-overline">{{ item.company }} - {{ item.period }}</span>
+                      <span class="text-overline">{{ item.company }}</span>
                     </v-card-title>
                     <v-card-subtitle v-if="item.position">
                       <p class="text-overline">{{ item.position }}</p>
+                      <p class="text-overline">{{ item.period }}</p>
                     </v-card-subtitle>
-                    <v-card-text v-if="item.description" v-html="item.description">
+                    <v-card-text v-if="item.description" class="text-wrap" v-html="item.description">
                     </v-card-text>
                     <v-card-text v-if="item.stack">
                     <span v-for="(stack,index) in item.stack">
