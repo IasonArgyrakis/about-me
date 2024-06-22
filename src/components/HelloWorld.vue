@@ -106,7 +106,7 @@
                     </v-card-text>
                     <v-card-text v-if="item.stack">
                     <span v-for="(stack,index) in item.stack">
-                   <v-chip class="ml-1">{{ stack }}</v-chip>
+                   <v-chip class="ml-1 mb-2">{{ stack }}</v-chip>
                 </span>
                     </v-card-text>
                   </v-card>
