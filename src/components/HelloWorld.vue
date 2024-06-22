@@ -256,7 +256,7 @@ export default {
         location: "Eindhoven, Netherlands",
         course: "Undergraduate Bsc Mechanical Engineering",
         description: "Courses: Statics,Thermodynamics, 3D Design,C++",
-        period: "2017-2018"
+        period: "2015-2017"
       },
       {
         organisation: "Fonty's",
@@ -270,7 +270,7 @@ export default {
         location: "Ag.Paraskeui, Greece",
         course: "Undergraduate Bsc CS  Software engineering",
         description: "Courses: Java,C++,Python, Project Management",
-        period: "2017-2018"
+        period: "2019 - paused"
       }
     ]
 
