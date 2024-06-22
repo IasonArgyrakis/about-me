@@ -153,29 +153,31 @@
                       dot-color="blue-grey"
                     >
                       <v-card>
-                        <v-card-title v-if="item.organisation">
+                        <v-card-title v-if="item.organisation" class="text-wrap">
                           <span class="text-overline">{{ item.organisation }}</span>
                         </v-card-title>
-                        <v-card-subtitle v-if="item.location">
+                        <v-card-subtitle v-if="item.course" class="text-wrap">
+                          <p class="text-overline">
+                            <v-icon>mdi-school-outline</v-icon>
+                            {{ item.course }}
+                          </p>
+                        </v-card-subtitle>
+                        <v-card-subtitle v-if="item.period" class="text-wrap">
+                          <p class="text-overline">
+                            {{ item.period }}
+                          </p>
+                        </v-card-subtitle>
+                        <v-card-subtitle v-if="item.location" class="text-wrap">
                           <p class="text-overline">
                             <v-icon>mdi-map-marker-outline</v-icon>
                             {{ item.location }}
                           </p>
                         </v-card-subtitle>
-                        <v-card-subtitle v-if="item.course">
-                          <p class="text-overline">
-                            <v-icon>mdi-map-marker-outline</v-icon>
-                            {{ item.course }}
-                          </p>
-                        </v-card-subtitle>
-                        <v-card-subtitle v-if="item.period">
-                          <p class="text-overline">
-                            {{ item.period }}
-                          </p>
-                        </v-card-subtitle>
+
+
                         <v-card-text v-if="item.description" class="text-wrap" v-html="item.description">
                         </v-card-text>
-                        <v-card-text v-if="item.stack">
+                        <v-card-text v-if="item.stack" class="text-wrap">
                           <span v-for="(stack,index) in item.stack">
                          <v-chip class="ml-1 mb-2">{{ stack }}</v-chip>
                       </span>
@@ -330,5 +332,8 @@ export default {
 <style scoped>
 .v-timeline .v-timeline-item .v-card {
   max-width: 800px !important;
+
+
 }
+
 </style>
