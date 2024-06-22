@@ -296,7 +296,9 @@ export default {
     },
     mailto() {
       let subject = "Let's have a call"
-      let body = `Hey Jason, <br>  I saw your cv from ${window.location.host} and I would like to connect`
+      let body = `Hey Jason,
+       I saw your cv from ${window.location.host} and I would like to connect`
+
       return `mailto:${this.queryParams.email}?subject=${subject}&body=${body}`
     },
     timeline() {
