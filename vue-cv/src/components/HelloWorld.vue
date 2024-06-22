@@ -84,20 +84,6 @@
               </v-card-text>
             </v-card>
           </v-col>
-
-
-          <!--          <v-col cols="12"-->
-          <!--                 md="6">-->
-          <!--            <v-timeline side="end">-->
-          <!--              <v-timeline-item-->
-          <!--                v-for="(item,index) in edu"-->
-          <!--                :key="index"-->
-          <!--                size="small"-->
-          <!--              >-->
-          <!--                <pre>{{item}}</pre>-->
-          <!--              </v-timeline-item>-->
-          <!--            </v-timeline>-->
-          <!--          </v-col>-->
           <v-col cols="12"
           >
             <v-responsive>
