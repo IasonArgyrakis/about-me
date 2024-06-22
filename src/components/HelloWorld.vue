@@ -7,9 +7,11 @@
       >
 
         <div class="text-left">
-          <h1 class="text-h2 font-weight-bold ">Iason Argyrakis</h1>
+          <h1 class="text-h1 font-weight-bold ">Hi 👋</h1>
+          <h1 class="text-h2 font-weight-bold ">I'm Iason Argyrakis</h1>
           <h2 class="text-h3 font-weight-medium">FullStack Developer</h2>
-          <h4 class="text-disabled text-h4 text-high-emphasis opacity-50 font-weight-regular">
+          <h4 class="text-disabled text-h4 text-high-emphasis opacity-50 font-weight-regular"
+              style="color: #08ff7ad6 !important;">
             ➜ Json git:(main) ✗</h4>
         </div>
 
@@ -44,10 +46,9 @@
                   and application infrastructure through Linux bash/zsh scripting and DevOps pipelines.</p>
               </v-card-text>
               <v-card-actions class="ml-2">
-                <v-btn color="primary" @click="scrollToElement('xp')" variant="outlined">Experience</v-btn>
-                <v-btn color="secondary" @click="scrollToElement('edu')" variant="outlined">Education</v-btn>
+                <v-btn color="primary" variant="outlined" @click="scrollToElement('xp')">Experience</v-btn>
+                <v-btn color="secondary" variant="outlined" @click="scrollToElement('edu')">Education</v-btn>
               </v-card-actions>
-
 
               <v-card-title>
                 <h2 class="text-h5 font-weight-bold "><span>About me</span></h2>
@@ -66,8 +67,10 @@
                   like to meet && possibly
                   collaborate with?</p>
               </v-card-text>
-              <v-card-actions class="ml-2">
-                <v-btn color="secondary" variant="outlined">Yes let's have a call</v-btn>
+              <v-card-actions v-if="queryParams.email" class="ml-2">
+
+                <v-btn :href="mailto" color="secondary" variant="outlined">Yes let's have a call
+                </v-btn>
               </v-card-actions>
               <v-card-text class=" text-mono">
 
@@ -87,34 +90,106 @@
           <v-col cols="12"
           >
             <v-responsive>
-              <v-timeline
-                id="xp"
-              :side="timeline">
-                <v-timeline-item
-                  v-for="(item,index) in xp"
-                  dot-color="blue-grey"
+              <v-tabs
+                v-model="active" center-active
+              >
+                <v-tab :variant="variants.xp" class="mr-1" value="xp">Experience</v-tab>
+                <v-tab :variant="variants.edu" value="edu">Education</v-tab>
+              </v-tabs>
+              <v-tabs-window v-model="active">
+
+                <v-tabs-window-item
+                  value="xp"
                 >
-                  <v-card>
-                    <v-card-title v-if="item.company">
-                      <span class="text-overline">{{ item.company }}</span>
-                    </v-card-title>
-                    <v-card-subtitle v-if="item.position">
-                      <p class="text-overline">{{ item.position }}</p>
-                      <p class="text-overline">{{ item.period }}</p>
-                    </v-card-subtitle>
-                    <v-card-text v-if="item.description" class="text-wrap" v-html="item.description">
-                    </v-card-text>
-                    <v-card-text v-if="item.stack">
-                    <span v-for="(stack,index) in item.stack">
-                   <v-chip class="ml-1 mb-2">{{ stack }}</v-chip>
-                </span>
-                    </v-card-text>
-                  </v-card>
+                  <v-timeline
+                    id="xp"
+                    side="end"
+                  >
+                    <v-timeline-item
+                      v-for="(item,index) in xp"
+                      dot-color="blue-grey"
+
+                    >
+                      <v-card class="text-wrap">
+                        <v-card-title v-if="item.company">
+                          <span class="text-overline text-wrap">{{ item.company }}</span>
+                        </v-card-title>
+                        <v-card-subtitle v-if="item.position" class="text-wrap">
+                          <p class="text-overline">{{ item.position }}</p>
+                          <p class="text-overline">{{ item.period }}</p>
+                        </v-card-subtitle>
+
+                        <v-card-text v-if="item.description" class="text-wrap" v-html="item.description">
+                        </v-card-text>
+                        <v-card-text v-if="item.stack" class="text-wrap">
+                          <v-chip-group class="text-wrap" column>
+
+                            <v-chip v-for="(stack,index) in item.stack">
+                              {{ stack }}
+                            </v-chip>
 
 
-                </v-timeline-item>
-              </v-timeline>
+                          </v-chip-group>
+                        </v-card-text>
+                      </v-card>
+
+
+                    </v-timeline-item>
+                  </v-timeline>
+                </v-tabs-window-item>
+
+
+                <v-tabs-window-item
+                  value="edu">
+
+                  <v-timeline
+                    id="edu"
+                    side="start"
+                  >
+
+
+                    <v-timeline-item
+                      v-for="(item,index) in edu"
+                      dot-color="blue-grey"
+                    >
+                      <v-card>
+                        <v-card-title v-if="item.organisation">
+                          <span class="text-overline">{{ item.organisation }}</span>
+                        </v-card-title>
+                        <v-card-subtitle v-if="item.location">
+                          <p class="text-overline">
+                            <v-icon>mdi-map-marker-outline</v-icon>
+                            {{ item.location }}
+                          </p>
+                        </v-card-subtitle>
+                        <v-card-subtitle v-if="item.course">
+                          <p class="text-overline">
+                            <v-icon>mdi-map-marker-outline</v-icon>
+                            {{ item.course }}
+                          </p>
+                        </v-card-subtitle>
+                        <v-card-subtitle v-if="item.period">
+                          <p class="text-overline">
+                            {{ item.period }}
+                          </p>
+                        </v-card-subtitle>
+                        <v-card-text v-if="item.description" class="text-wrap" v-html="item.description">
+                        </v-card-text>
+                        <v-card-text v-if="item.stack">
+                          <span v-for="(stack,index) in item.stack">
+                         <v-chip class="ml-1 mb-2">{{ stack }}</v-chip>
+                      </span>
+                        </v-card-text>
+                      </v-card>
+
+
+                    </v-timeline-item>
+                  </v-timeline>
+                </v-tabs-window-item>
+
+              </v-tabs-window>
             </v-responsive>
+
 
           </v-col>
 
@@ -126,6 +201,7 @@
 </template>
 
 <script>
+
 export default {
   data() {
     const xp = [
@@ -174,36 +250,85 @@ export default {
     ]
     const edu = [
       {
-        organisation: "E",
-        location: "loc",
-        course: "Intern Dev",
-        description: "description",
-        period: "description"
+        organisation: "Fonty's",
+        location: "Eindhoven, Netherlands",
+        course: "Undergraduate Bsc Mechanical Engineering",
+        description: "Courses: Statics,Thermodynamics, 3D Design,C++",
+        period: "2017-2018"
+      },
+      {
+        organisation: "Fonty's",
+        location: "Eindhoven, Netherlands",
+        course: "Undergraduate Bsc ICT , Software engineering",
+        description: "Courses: HTML,CSS,JS,C sharp",
+        period: "2017-2018"
+      },
+      {
+        organisation: "Deree",
+        location: "Ag.Paraskeui, Greece",
+        course: "Undergraduate Bsc CS  Software engineering",
+        description: "Courses: Java,C++,Python, Project Management",
+        period: "2017-2018"
       }
     ]
+
+    const variant_map = {
+      "active": "tonal",
+      "inactive": "flat"
+    }
+
     return {
-      xp, edu
+
+      xp, edu, active: "xp",
+      variant_map,
+
+      variants: {
+        "xp": variant_map.active,
+        "edu": variant_map.inactive
+      }
     }
   },
   computed: {
+    queryParams() {
+      return Object.fromEntries(new URLSearchParams(new URL(window.location).search).entries());
+    },
+    mailto() {
+      let subject = "Let's have a call"
+      let body = `Hey Jason, <br>  I saw your cv from ${window.location.host} and I would like to connect`
+      return `mailto:${this.queryParams.email}?subject=${subject}&body=${body}`
+    },
     timeline() {
-      if (this.$vuetify.display.smAndDown){
+
+      if (this.$vuetify.display.smAndDown) {
+        window.alert(1)
         return "end"
+      } else {
+
       }
       return undefined
 
-    }
+    },
+
 
   },
   methods: {
+
     scrollToElement(id) {
       // Find the element by its ID
+      this.active = id
       const element = document.getElementById(id);
       if (element) {
+
         // Scroll to the element
-        element.scrollIntoView({ behavior: 'smooth' });
+        element.scrollIntoView({behavior: 'smooth'});
       }
+
     }
   }
 }
 </script>
+<style scoped>
+.v-timeline .v-timeline-item .v-card {
+  max-width: 800px !important;
+}
+</style>
