@@ -158,10 +158,10 @@
                   <v-list ref="skills" class="pa-1">
                     <v-list-item v-for="(item, index) in skills" :key="index">
                       <v-row align="center">
-                        <v-col>
+                        <v-col class="flex-grow-0" sm="1">
                           <v-icon :icon="item.icon" color="white" size="40px"/>
                         </v-col>
-                        <v-col cols="10">
+                        <v-col>
                           <p class="text-body-1">{{ item.name }}</p>
                           <v-expand-x-transition>
                             <v-progress-linear v-show="this.targetIsVisible" v-model="item.confidence"
