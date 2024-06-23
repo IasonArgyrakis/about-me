@@ -158,10 +158,10 @@
                   <v-list ref="skills" class="pa-1">
                     <v-list-item v-for="(item, index) in skills" :key="index">
                       <v-row align="center">
-                        <v-col cols="1">
+                        <v-col>
                           <v-icon :icon="item.icon" color="white" size="40px"/>
                         </v-col>
-                        <v-col>
+                        <v-col cols="10">
                           <p class="text-body-1">{{ item.name }}</p>
                           <v-expand-x-transition>
                             <v-progress-linear v-show="this.targetIsVisible" v-model="item.confidence"
@@ -282,7 +282,7 @@ export default {
         company: "Neogen",
         position: "FullStack Developer - Individual contributor",
         stack: ["PHP", "nodejs", "express", "microservices", "mongodb"],
-        description: "Individual contributor and external contractor for a saas product in  food safety management and operation",
+        description: "<p class='mt-1'>Individual contributor and external contractor for a saas product in  food safety management and operation</p> <p class='mt-2'> Optimized local project setup from a full day to 20 minutes (excluding test database data) by creating a script that downloads and organizes the required repositories and development tools</p>",
         period: "1/2024 - 12/2024"
       },
     ]
