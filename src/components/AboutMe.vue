@@ -90,14 +90,18 @@
                 <p class="pa-1 text-body-1 text-medium-emphasis">
                   If my skills and experience don't align with your current needs, thank you for considering my
                   application.</p>
-                <v-card-actions class="ml-2">
-                  <v-btn :href="mailJsonGood" color="primary" prepend-icon="mdi-email-check-outline" variant="elevated">
-                    Let's have a call 🎉
-                  </v-btn>
-                  <v-btn :href="mailJsonBad" color="secondary" prepend-icon="mdi-email-remove-outline" variant="tonal">
-                    Not a match 🙁
-                  </v-btn>
-                </v-card-actions>
+              </v-card-text>
+              <v-card-actions class="flex-wrap ">
+                <v-btn :href="mailJsonGood" class="d-flex flex-xs-grow-1 flex-sm-grow-1 flex-md-grow-0" color="primary"
+                       prepend-icon="mdi-email-check-outline" variant="elevated">
+                  Let's have a call 🎉
+                </v-btn>
+                <v-btn :href="mailJsonBad" class="d-flex flex-xs-grow-1 lex-sm-grow-1 flex-md-grow-0" color="secondary"
+                       prepend-icon="mdi-email-remove-outline" variant="tonal">
+                  Not a match 🙁
+                </v-btn>
+              </v-card-actions>
+              <v-card-text>
                 <p class="pa-1 text-body-1 text-medium-emphasis">
                   A quick email to let me know would be greatly appreciated.
                 </p>
