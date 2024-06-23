@@ -91,7 +91,7 @@
                   If my skills and experience don't align with your current needs, thank you for considering my
                   application.</p>
               </v-card-text>
-              <v-card-actions class="flex-wrap ">
+              <v-card-actions class="flex-wrap px-1">
                 <v-btn :href="mailJsonGood" class="d-flex flex-xs-grow-1 flex-sm-grow-1 flex-md-grow-0" color="primary"
                        prepend-icon="mdi-email-check-outline" variant="elevated">
                   Let's have a call 🎉
