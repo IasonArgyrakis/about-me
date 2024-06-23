@@ -352,11 +352,6 @@ export default {
         icon: "mdi-source-repository",
         confidence: "70"
       },
-      {
-        name: "Html",
-        icon: "mdi-language-html5",
-        confidence: "70"
-      },
     ]
     const email = "jasonargirakis@gmail.com"
     return {
