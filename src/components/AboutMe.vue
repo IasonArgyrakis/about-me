@@ -350,7 +350,7 @@ export default {
       {
         name: "Git",
         icon: "mdi-source-repository",
-        confidence: "70"
+        confidence: "64"
       },
     ]
     const email = "jasonargirakis@gmail.com"
